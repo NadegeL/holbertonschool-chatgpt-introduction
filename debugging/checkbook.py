@@ -1,20 +1,25 @@
-#!/usr/bin/python3
-
 # Ce script implémente une application simple de gestion de carnet de chèques.
 # Il permet à l'utilisateur de déposer de l'argent, de retirer de l'argent,
 # de vérifier le solde du carnet de chèques, et de quitter l'application.
 # L'interaction avec l'utilisateur se fait via la ligne de commande.
 
+#!/usr/bin/python3
 class Checkbook:
     def __init__(self):
         self.balance = 0.0
 
     def deposit(self, amount):
+        if amount < 0:
+            print("Error: Cannot deposit a negative amount.")
+            return
         self.balance += amount
         print("Deposited ${:.2f}".format(amount))
         print("Current Balance: ${:.2f}".format(self.balance))
 
     def withdraw(self, amount):
+        if amount < 0:
+            print("Error: Cannot withdraw a negative amount.")
+            return
         if amount > self.balance:
             print("Insufficient funds to complete the withdrawal.")
         else:
@@ -33,17 +38,16 @@ def main():
             break
         elif action.lower() == 'deposit':
             try:
-                    
                 amount = float(input("Enter the amount to deposit: $"))
                 cb.deposit(amount)
             except ValueError:
-                print("Invalid input. Please enter numeric value.")
+                print("Invalid amount. Please enter a numeric value.")
         elif action.lower() == 'withdraw':
             try:
                 amount = float(input("Enter the amount to withdraw: $"))
                 cb.withdraw(amount)
             except ValueError:
-                print("Invalid input. Please enter a numeric value.")
+                print("Invalid amount. Please enter a numeric value.")
         elif action.lower() == 'balance':
             cb.get_balance()
         else:

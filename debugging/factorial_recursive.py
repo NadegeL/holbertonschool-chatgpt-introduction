@@ -1,11 +1,7 @@
-#Description de la fonction:
-        #Calcule le factoriel d'un nombre donné en utilisant la récursivité.
-        
-    #Paramètres:
-        #n (int): Le nombre entier pour lequel le factoriel doit être calculé.
-        
-    #Retours:
-        #int: Le factoriel du nombre n.
+#Calcule le factoriel d'un nombre donné en utilisant la récursivité.
+#n (int): Le nombre entier pour lequel le factoriel doit être calculé.
+#int: Le factoriel du nombre n.
+
 #!/usr/bin/python3
 import sys
 
